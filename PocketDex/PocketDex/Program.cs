@@ -15,7 +15,7 @@ namespace PocketDex
 			Task t = MyPokemon.asyncLoad();
 			await t;
 
-			foreach (Pokemon PKmon in MyPokemon.Pokemonlist)
+			foreach (Pokemon PKmon in MyPokemon)
 			{
 				Console.WriteLine(PKmon.name);
 			}

@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace PocketDex
 {
-    public class PokemonHandler
+    public class PokemonHandler : List<Pokemon>
     {
-        public List<Pokemon> Pokemonlist;
 
         public PokemonHandler()
         {
-            Pokemonlist = new List<Pokemon>();
         }
 
         public async Task asyncLoad()
@@ -28,7 +26,7 @@ namespace PocketDex
                     {
                         using (StreamReader reader = new StreamReader(PKmon))
                         {
-                            Pokemonlist.Add(JsonConvert.DeserializeObject<Pokemon>(reader.ReadToEnd()));
+                            Add(JsonConvert.DeserializeObject<Pokemon>(reader.ReadToEnd()));
                         }
 
                     }
@@ -40,12 +38,12 @@ namespace PocketDex
             }
             else
 			{
-                Task t = loadlist();
+                Task t = Getlist();
                 await t;
             }
 		}
 
-        public async Task loadlist()
+        public async Task Getlist()
         {
             BasicPokemonHandler PokemonBasics = new BasicPokemonHandler();
 
@@ -73,9 +71,9 @@ namespace PocketDex
                 {
                     string data = await httpClient.GetStringAsync(PKmon.url);
 
-                    Pokemonlist.Add(JsonConvert.DeserializeObject<Pokemon>(data));
+                    Add(JsonConvert.DeserializeObject<Pokemon>(data));
 
-                    Console.WriteLine("Finished Getting Pokemon " + PKmon.name);
+                    //Console.WriteLine("Finished Getting Pokemon " + PKmon.name);
                 }
                 catch
                 {
@@ -87,7 +85,7 @@ namespace PocketDex
         }
         public void Save()
         {
-            foreach (Pokemon PKmon in Pokemonlist)
+            foreach (Pokemon PKmon in this)
             {
                 try
                 {
