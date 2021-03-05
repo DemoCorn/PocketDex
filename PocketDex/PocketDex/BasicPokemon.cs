@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text; 
+using System.IO.Pipes;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace PocketDex
 {
@@ -16,5 +21,5 @@ namespace PocketDex
         public string next { get; set; }
         public object previous { get; set; }
         public List<BasicPokemon> results { get; set; }
-    }
+	}
 }
