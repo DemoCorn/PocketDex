@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketDex", "PocketDex\PocketDex.csproj", "{43A52E0E-4BD8-4D2C-8E0E-1A50101A7968}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43A52E0E-4BD8-4D2C-8E0E-1A50101A7968}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A52E0E-4BD8-4D2C-8E0E-1A50101A7968}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A52E0E-4BD8-4D2C-8E0E-1A50101A7968}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A52E0E-4BD8-4D2C-8E0E-1A50101A7968}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E32FE39-19E0-4356-828A-EEA4AE4776D4}
+	EndGlobalSection
+EndGlobal
