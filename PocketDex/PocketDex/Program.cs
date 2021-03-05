@@ -14,6 +14,11 @@ namespace PocketDex
 			PokemonHandler MyPokemon = new PokemonHandler();
 			Task t = MyPokemon.asyncLoad();
 			await t;
+
+			foreach (Pokemon PKmon in MyPokemon.Pokemonlist)
+			{
+				Console.WriteLine(PKmon.name);
+			}
 		}
 	}
 }

@@ -399,7 +399,7 @@ namespace PocketDex
         public List<Move> moves { get; set; }
         public string name { get; set; }
         public int order { get; set; }
-        public List<object> past_types { get; set; }
+        public List<Stat> past_types { get; set; }
         public Species species { get; set; }
         public Sprites sprites { get; set; }
         public List<Stat> stats { get; set; }
