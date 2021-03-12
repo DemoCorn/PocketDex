@@ -15,6 +15,14 @@ namespace PokemonLib
         {
         }
 
+        public PokemonHandler(PokemonHandler ToCopy)
+		{
+            foreach(Pokemon Copy in ToCopy)
+			{
+                Add(Copy);
+			}
+		}
+
         public async Task asyncLoad()
 		{
             if (Directory.Exists("PocketDex/Pokemon")) {
@@ -79,8 +87,6 @@ namespace PokemonLib
                     string data = await httpClient.GetStringAsync(PKmon.url);
 
                     Add(JsonConvert.DeserializeObject<Pokemon>(data));
-
-                    //Console.WriteLine("Finished Getting Pokemon " + PKmon.name);
                 }
                 catch
                 {
@@ -90,7 +96,7 @@ namespace PokemonLib
 
             Save();
         }
-        public void Save()
+        private void Save()
         {
             foreach (Pokemon PKmon in this)
             {
@@ -132,6 +138,38 @@ namespace PokemonLib
                 return true;
             }
             return false;
+        }
+
+        public PokemonHandler GetOfType(string type1, string type2 = "None")
+		{
+            PokemonHandler HandlerToReturn = new PokemonHandler();
+
+            foreach (Pokemon PKmon in this)
+            {
+                if (PKmon.HasType(type1) && PKmon.HasType(type2))
+				{
+                    HandlerToReturn.Add(PKmon);
+				}
+            }
+
+            return HandlerToReturn;
+		}
+
+        public PokemonHandler PokemonContainsName(string name)
+        {
+            PokemonHandler HandlerToReturn = new PokemonHandler();
+
+            name = name.ToLower();
+
+            foreach (Pokemon PKmon in this)
+            {
+                if (PKmon.name.Contains(name))
+				{
+                    HandlerToReturn.Add(PKmon);
+                }
+            }
+
+            return HandlerToReturn;
         }
     }
 }

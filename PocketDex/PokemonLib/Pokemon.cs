@@ -34,12 +34,32 @@ namespace PokemonLib
 
         public override string ToString()
 		{
-            string returnvalue = name + " " + types[0].type.name;
+            //string returnvalue = name + " " + types[0].type.name;
+
+            string returnvalue = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name) + " " + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(types[0].type.name);
+
             if (types.Count == 2)
 			{
-                returnvalue += "/" + types[1].type.name;
+                returnvalue += "/" + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(types[1].type.name);
             }
             return returnvalue;
+		}
+
+        public bool HasType(string TypeToTest)
+		{
+            TypeToTest = TypeToTest.ToLower();
+            if (TypeToTest == "none")
+			{
+                return true;
+			}
+            foreach (Type TypeTester in types)
+			{
+                if (TypeTester.type.name == TypeToTest)
+				{
+                    return true;
+				}
+			}
+            return false;
 		}
     }
 }

@@ -1,0 +1,40 @@
+﻿<Window x:Class="PocketDex.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PocketDex"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+		Loaded="WindowOpening">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="14*"/>
+			<ColumnDefinition Width="369*"/>
+			<ColumnDefinition Width="17*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="7*"/>
+			<RowDefinition Height="41*"/>
+			<RowDefinition Height="47*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="37*"/>
+			<RowDefinition Height="245*"/>
+			<RowDefinition Height="7*"/>
+		</Grid.RowDefinitions>
+		<ListBox Name="lbPokemon" Grid.Column="1" Grid.Row="5" SelectionChanged="TesterFunction">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<Image Width="50" Height="50" Source="{Binding Path=sprites.front_default}"></Image>
+						<TextBlock Text="{Binding}" VerticalAlignment="Center" Margin="20,0,0,0"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ComboBox Name ="cbTypes1" SelectionChanged="FilterByType" Grid.Column="1" Grid.Row="2" Width="250" HorizontalAlignment="Left"/>
+		<ComboBox Name ="cbTypes2" SelectionChanged="FilterByType" Grid.Column="1" Grid.Row="2" Width="250" HorizontalAlignment="Right"/>
+		<TextBox Name = "tbSearchBox" Grid.Column="1" Grid.Row="4" Text="" TextWrapping="Wrap" FontSize="20" TextChanged="PokemonSearch"/>
+
+	</Grid>
+</Window>
