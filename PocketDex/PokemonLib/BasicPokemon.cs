@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace PocketDex
+namespace PokemonLib
 {
     public class BasicPokemon
     {

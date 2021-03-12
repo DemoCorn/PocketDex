@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace PocketDex
+namespace PokemonLib
 {
     public class PokemonHandler : List<Pokemon>
     {
@@ -17,27 +17,34 @@ namespace PocketDex
 
         public async Task asyncLoad()
 		{
-            string[] Entries = Directory.GetFiles("PocketDex/Pokemon");
-            if (Entries.Length != 0)
-			{
-                foreach (string PKmon in Entries)
-				{
-                    try
+            if (Directory.Exists("PocketDex/Pokemon")) {
+                string[] Entries = Directory.GetFiles("PocketDex/Pokemon");
+                if (Entries.Length != 0)
+                {
+                    foreach (string PKmon in Entries)
                     {
-                        using (StreamReader reader = new StreamReader(PKmon))
+                        try
                         {
-                            Add(JsonConvert.DeserializeObject<Pokemon>(reader.ReadToEnd()));
-                        }
+                            using (StreamReader reader = new StreamReader(PKmon))
+                            {
+                                Add(JsonConvert.DeserializeObject<Pokemon>(reader.ReadToEnd()));
+                            }
 
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
+                }
+                else
+                {
+                    Task t = Getlist();
+                    await t;
                 }
             }
             else
-			{
+            {
                 Task t = Getlist();
                 await t;
             }
