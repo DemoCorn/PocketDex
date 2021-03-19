@@ -114,6 +114,35 @@ namespace PokemonLib
             }
         }
 
+        public static async Task CheckEncounterFile(int id, string url)
+		{
+
+            var httpClient = HttpClientFactory.Create();
+
+            if (!Directory.Exists("PocketDex/EncounterTables"))
+            {
+                Directory.CreateDirectory("PocketDex/EncounterTables");
+            }
+
+            if (!File.Exists("PocketDex/EncounterTables/" + id + ".json"))
+            {
+                try
+                {
+                    // Call the API and add to the object
+                    string data = await httpClient.GetStringAsync(url);
+
+                    using (StreamWriter writer = new StreamWriter("PocketDex/EncounterTables/" + id + ".json"))
+                    {
+                        writer.Write(data);
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("error");
+                }
+            }
+        }
+
     }
 
 

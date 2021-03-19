@@ -345,5 +345,11 @@ namespace PokemonLib
 
             return EncounterList;
 		}
+
+        public async Task CheckEncounters()
+		{
+            Task T = PokemonLocations.CheckEncounterFile(id, location_area_encounters);
+            await T;
+        }
     }
 }

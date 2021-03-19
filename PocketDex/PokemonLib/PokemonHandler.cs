@@ -24,13 +24,15 @@ namespace PokemonLib
 		}
 
         public async Task asyncLoad()
-		{
+        {
             // Check if directory exists
-            if (Directory.Exists("PocketDex/Pokemon")) {
+            if (Directory.Exists("PocketDex/Pokemon"))
+            {
                 // Getting all files in Pokemon
                 string[] Entries = Directory.GetFiles("PocketDex/Pokemon");
                 if (Entries.Length != 0)
                 {
+                    Task t = default(Task);
                     foreach (string PKmon in Entries)
                     {
                         try
@@ -39,6 +41,7 @@ namespace PokemonLib
                             {
                                 // Deserialize the object
                                 Add(JsonConvert.DeserializeObject<Pokemon>(reader.ReadToEnd()));
+                                t = this[Count - 1].CheckEncounters();
                             }
 
                         }
@@ -47,6 +50,7 @@ namespace PokemonLib
                             Console.WriteLine(ex.Message);
                         }
                     }
+                    await t;
                 }
                 else
                 {
@@ -59,7 +63,7 @@ namespace PokemonLib
                 Task t = Getlist();
                 await t;
             }
-		}
+        }
 
         public async Task Getlist()
         {
@@ -85,17 +89,20 @@ namespace PokemonLib
             PokemonBasics.count = PokemonBasics.results.Count;
 
             foreach (BasicPokemon PKmon in PokemonBasics.results) {
+                Task t = default(Task);
                 try
                 {
                     // Call api for all pokemon in the pokemonbasic
                     string data = await httpClient.GetStringAsync(PKmon.url);
 
                     Add(JsonConvert.DeserializeObject<Pokemon>(data));
+                    t = this[Count - 1].CheckEncounters();
                 }
                 catch
                 {
                     Console.WriteLine("error");
                 }
+                await t;
             }
 
             Save();
