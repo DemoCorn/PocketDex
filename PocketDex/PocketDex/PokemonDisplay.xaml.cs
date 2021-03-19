@@ -29,7 +29,7 @@ namespace PocketDex
 			TypeBlock.Text = "";
 			foreach (PokemonLib.Type TypeName in PKMon.types)
 			{
-				TypeBlock.Text += TypeName.type.name + "/";
+				TypeBlock.Text += System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(TypeName.type.name) + "/";
 			}
 			TypeBlock.Text = TypeBlock.Text.Remove(TypeBlock.Text.Length - 1);
 
