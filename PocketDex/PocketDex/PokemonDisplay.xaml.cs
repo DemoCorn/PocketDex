@@ -45,24 +45,24 @@ namespace PocketDex
 			List<float> Matchups = PKMon.GetMatchups();
 			
 			// Set matchups text
-			Normal.Text += Matchups[0].ToString();
-			Fire.Text += Matchups[1].ToString();
-			Water.Text += Matchups[2].ToString();
-			Grass.Text += Matchups[3].ToString();
-			Fighting.Text += Matchups[4].ToString();
-			Electric.Text += Matchups[5].ToString();
-			Flying.Text += Matchups[6].ToString();
-			Rock.Text += Matchups[7].ToString();
-			Ground.Text += Matchups[8].ToString();
-			Psychic.Text += Matchups[9].ToString();
-			Dark.Text += Matchups[10].ToString();
-			Ghost.Text += Matchups[11].ToString();
-			Bug.Text += Matchups[12].ToString();
-			Poison.Text += Matchups[13].ToString();
-			Ice.Text += Matchups[14].ToString();
-			Steel.Text += Matchups[15].ToString();
-			Dragon.Text += Matchups[16].ToString();
-			Fairy.Text += Matchups[17].ToString();
+			Normal.Text = Matchups[0].ToString() + "x";
+			Fire.Text = Matchups[1].ToString() + "x";
+			Water.Text = Matchups[2].ToString() + "x";
+			Grass.Text = Matchups[3].ToString() + "x";
+			Fighting.Text = Matchups[4].ToString() + "x";
+			Electric.Text = Matchups[5].ToString() + "x";
+			Flying.Text = Matchups[6].ToString() + "x";
+			Rock.Text = Matchups[7].ToString() + "x";
+			Ground.Text = Matchups[8].ToString() + "x";
+			Psychic.Text = Matchups[9].ToString() + "x";
+			Dark.Text = Matchups[10].ToString() + "x";
+			Ghost.Text = Matchups[11].ToString() + "x";
+			Bug.Text = Matchups[12].ToString() + "x";
+			Poison.Text = Matchups[13].ToString() + "x";
+			Ice.Text = Matchups[14].ToString() + "x";
+			Steel.Text = Matchups[15].ToString() + "x";
+			Dragon.Text = Matchups[16].ToString() + "x";
+			Fairy.Text = Matchups[17].ToString() + "x";
 
 			// Set sprite
 			PokemonPicture.Source = new BitmapImage(new Uri(PKMon.sprites.front_default));
