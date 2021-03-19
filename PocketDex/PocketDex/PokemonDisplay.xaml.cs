@@ -21,7 +21,9 @@ namespace PocketDex
 		public PokemonDisplay(Pokemon PKMon)
 		{
 			InitializeComponent();
-			
+
+			Title = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(PKMon.name); ;
+
 			TypeBlock.Text = "";
 			foreach (PokemonLib.Type TypeName in PKMon.types)
 			{
