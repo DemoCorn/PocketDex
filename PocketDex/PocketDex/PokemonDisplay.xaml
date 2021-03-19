@@ -35,7 +35,7 @@
 		<TextBlock Grid.Column="3" HorizontalAlignment="Left" Grid.Row="1" Text="Stats" TextWrapping="Wrap" VerticalAlignment="Center" Height="15" Width="25"/>
 		<TextBlock Grid.Column="7" HorizontalAlignment="Left" Grid.Row="1" Text="Matchups" TextWrapping="Wrap" VerticalAlignment="Center" Height="15" Width="52"/>
 		<TextBlock Grid.Column="6" HorizontalAlignment="Left" Grid.Row="1" Text="Abilities" TextWrapping="Wrap" VerticalAlignment="Center" Height="15" Width="52"/>
-		<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Water/Fire" Name="TypeBlock" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,15,0,0" Height="16" Width="55"/>
+		<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Water/Fire" Name="TypeBlock" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,15,0,0"/>
 		<StackPanel Grid.Column="3" Grid.Row="1" Margin="0,31,0,0" Grid.RowSpan="2">
 			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="HP: 100" Name="HP" TextWrapping="Wrap" VerticalAlignment="Center"/>
 			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Defense: 100" Name="Def" TextWrapping="Wrap" VerticalAlignment="Center"/>
@@ -47,24 +47,24 @@
 			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Speed: 100" Name="Spd" TextWrapping="Wrap" VerticalAlignment="Center"/>
 		</StackPanel>
 		<StackPanel Grid.Column="7" Grid.Row="1" Grid.RowSpan="5" Margin="0,31,0,0">
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Normal: " Name ="Normal" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Fire: " Name ="Fire" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Water: " Name ="Water" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Grass: " Name ="Grass" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Fighting: " Name ="Fighting" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Electric: " Name ="Electric" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Flying: " Name ="Flying" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Rock: " Name ="Rock" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Ground: " Name ="Ground" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Psychic: " Name ="Psychic" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Dark: " Name ="Dark" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Ghost: " Name ="Ghost" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Bug: " Name ="Bug" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Poison: " Name ="Poison" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Ice: " Name ="Ice" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Steel: " Name ="Steel" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Dragon: " Name ="Dragon" TextWrapping="Wrap" VerticalAlignment="Center"/>
-			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Fairy: " Name ="Fairy" TextWrapping="Wrap" VerticalAlignment="Center"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Normal: " Name ="Normal" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#A8A77A"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Fire: " Name ="Fire" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#EE8130"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Water: " Name ="Water" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#6390F0"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Grass: " Name ="Grass" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#7AC74C"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Fighting: " Name ="Fighting" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#C22E28"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Electric: " Name ="Electric" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#F7D02C"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Flying: " Name ="Flying" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#A98FF3"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Rock: " Name ="Rock" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#B6A136"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Ground: " Name ="Ground" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#E2BF65"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Psychic: " Name ="Psychic" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#F95587"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Dark: " Name ="Dark" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#705746"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Ghost: " Name ="Ghost" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#735797"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Bug: " Name ="Bug" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#A6B91A"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Poison: " Name ="Poison" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#A33EA1"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Ice: " Name ="Ice" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#96D9D6"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Steel: " Name ="Steel" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#B7B7CE"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Dragon: " Name ="Dragon" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#6F35FC"/>
+			<TextBlock Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Text="Fairy: " Name ="Fairy" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White" Background="#D685AD"/>
 		</StackPanel>
 
 		<ListBox Name="lbAbilites" Grid.Column="6" Grid.Row="2" Width="120" HorizontalAlignment="Left"/>

@@ -162,6 +162,7 @@ namespace PokemonLib
                     Matchups[1] = 0.5f;
                     Matchups[14] = 0.5f;
                     Matchups[2] = 0.5f;
+                    Matchups[15] = 0.5f;
                     Matchups[5] = 2f;
                     Matchups[3] = 2f;
                 }
@@ -228,9 +229,9 @@ namespace PokemonLib
                 {
                     Matchups[4] = 0.5f;
                     Matchups[9] = 0.5f;
-                    Matchups[12] = 0.5f;
-                    Matchups[10] = 0.5f;
-                    Matchups[11] = 0.5f;
+                    Matchups[12] = 2f;
+                    Matchups[10] = 2f;
+                    Matchups[11] = 2f;
                 }
                 else if (TestType.type.name == "dark")
                 {
@@ -247,7 +248,7 @@ namespace PokemonLib
                     Matchups[13] = 0.5f;
                     Matchups[10] = 2f;
                     Matchups[11] = 2f;
-                    Matchups[1] = 0f;
+                    Matchups[0] = 0f;
                     Matchups[4] = 0f;
                 }
                 else if (TestType.type.name == "bug")
@@ -285,7 +286,7 @@ namespace PokemonLib
                     Matchups[6] = 0.5f;
                     Matchups[3] = 0.5f;
                     Matchups[14] = 0.5f;
-                    Matchups[1] = 0.5f;
+                    Matchups[0] = 0.5f;
                     Matchups[9] = 0.5f;
                     Matchups[7] = 0.5f;
                     Matchups[15] = 0.5f;
