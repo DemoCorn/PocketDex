@@ -25,7 +25,9 @@ namespace PokemonLib
 
         public async Task asyncLoad()
 		{
+            // Check if directory exists
             if (Directory.Exists("PocketDex/Pokemon")) {
+                // Getting all files in Pokemon
                 string[] Entries = Directory.GetFiles("PocketDex/Pokemon");
                 if (Entries.Length != 0)
                 {
@@ -35,6 +37,7 @@ namespace PokemonLib
                         {
                             using (StreamReader reader = new StreamReader(PKmon))
                             {
+                                // Deserialize the object
                                 Add(JsonConvert.DeserializeObject<Pokemon>(reader.ReadToEnd()));
                             }
 
@@ -60,12 +63,14 @@ namespace PokemonLib
 
         public async Task Getlist()
         {
+            // Create Pokemon Basic
             BasicPokemonHandler PokemonBasics = new BasicPokemonHandler();
 
             var httpClient = HttpClientFactory.Create();
 
             try
             {
+                // Call the data for all pokemon (this is hard coded, but faster on first load)
                 string data = await httpClient.GetStringAsync("https://pokeapi.co/api/v2/pokemon?limit=1118");
 
                 PokemonBasics = JsonConvert.DeserializeObject<BasicPokemonHandler>(data);
@@ -75,15 +80,14 @@ namespace PokemonLib
                 Console.WriteLine("error");
             }
 
+            // Culls the list of uneeded Pokemon
             PokemonBasics.results.RemoveAll(ContainsChar);
             PokemonBasics.count = PokemonBasics.results.Count;
-
-            Directory.CreateDirectory("PocketDex");
-            Directory.CreateDirectory("PocketDex/Pokemon");
 
             foreach (BasicPokemon PKmon in PokemonBasics.results) {
                 try
                 {
+                    // Call api for all pokemon in the pokemonbasic
                     string data = await httpClient.GetStringAsync(PKmon.url);
 
                     Add(JsonConvert.DeserializeObject<Pokemon>(data));
@@ -98,10 +102,15 @@ namespace PokemonLib
         }
         private void Save()
         {
+            // Create needed directories
+            Directory.CreateDirectory("PocketDex");
+            Directory.CreateDirectory("PocketDex/Pokemon");
+
             foreach (Pokemon PKmon in this)
             {
                 try
                 {
+                    // Make every entry into files
                     using (StreamWriter writer = new StreamWriter("PocketDex/Pokemon/" + PKmon.name + ".json"))
                     {
                         writer.Write(System.Text.Json.JsonSerializer.Serialize<Pokemon>(PKmon));
@@ -144,6 +153,7 @@ namespace PokemonLib
 		{
             PokemonHandler HandlerToReturn = new PokemonHandler();
 
+            // Find all pokemon with given types
             foreach (Pokemon PKmon in this)
             {
                 if (PKmon.HasType(type1) && PKmon.HasType(type2))
@@ -161,6 +171,7 @@ namespace PokemonLib
 
             name = name.ToLower();
 
+            // Find all pokemon with given characters in the name
             foreach (Pokemon PKmon in this)
             {
                 if (PKmon.name.Contains(name))

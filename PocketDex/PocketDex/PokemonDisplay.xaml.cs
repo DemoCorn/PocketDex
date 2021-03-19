@@ -22,8 +22,10 @@ namespace PocketDex
 		{
 			InitializeComponent();
 
+			// Set title to pokemon name
 			Title = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(PKMon.name); ;
 
+			// Set the Typing
 			TypeBlock.Text = "";
 			foreach (PokemonLib.Type TypeName in PKMon.types)
 			{
@@ -31,6 +33,7 @@ namespace PocketDex
 			}
 			TypeBlock.Text = TypeBlock.Text.Remove(TypeBlock.Text.Length - 1);
 
+			// Set Stats
 			HP.Text = "HP: " + PKMon.stats[0].base_stat;
 			Atk.Text = "Attack: " + PKMon.stats[1].base_stat;
 			Def.Text = "Defense: " + PKMon.stats[2].base_stat;
@@ -38,8 +41,10 @@ namespace PocketDex
 			SDef.Text = "Sp. Def: " + PKMon.stats[4].base_stat;
 			Spd.Text = "Speed: " + PKMon.stats[5].base_stat;
 
+			// Create Matchups list
 			List<float> Matchups = PKMon.GetMatchups();
 			
+			// Set matchups text
 			Normal.Text += Matchups[0].ToString();
 			Fire.Text += Matchups[1].ToString();
 			Water.Text += Matchups[2].ToString();
@@ -59,22 +64,28 @@ namespace PocketDex
 			Dragon.Text += Matchups[16].ToString();
 			Fairy.Text += Matchups[17].ToString();
 
+			// Set sprite
 			PokemonPicture.Source = new BitmapImage(new Uri(PKMon.sprites.front_default));
 
+			// Set abilities
 			lbAbilites.ItemsSource = PKMon.abilities;
 
+			// Create PokemonMoves List
 			List<string> PokemonMoves = new List<string>();
 
+			// Get the pokemon moves
 			foreach (Move mv in PKMon.moves)
 			{
 				PokemonMoves.Add(mv.ToString());
 			}
 
+			// Create the lists that will hold the different moves
 			List<string> LevelMoves = new List<string>();
 			List<string> TMMoves = new List<string>();
 			List<string> TutorMoves = new List<string>();
 			List<string> EggMoves = new List<string>();
 
+			// Figure out where each move should go given it's defining charecter, then remove the defining charecter
 			foreach (string MoveString in PokemonMoves)
 			{
 				if (MoveString[MoveString.Length - 1] == 'L')
@@ -95,11 +106,13 @@ namespace PocketDex
 				}
 			}
 
+			// Set all the boxes for moves
 			lbMoves.ItemsSource = LevelMoves;
 			lbMachineMoves.ItemsSource = TMMoves;
 			lbTutorMoves.ItemsSource = TutorMoves;
 			lbEggMoves.ItemsSource = EggMoves;
 
+			// Set the encounters
 			List<string> PokemonEncounters = PKMon.GetEncounters();
 			lbLocations.ItemsSource = PokemonEncounters;
 		}

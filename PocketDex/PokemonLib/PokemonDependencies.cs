@@ -96,6 +96,7 @@ namespace PokemonLib
 
         public override string ToString()
         {
+            // Figure out what the moves type is and return it with an identifying charecter
             if (version_group_details[version_group_details.Count - 1].move_learn_method.name == "machine")
 			{
                 return move.name + "M";

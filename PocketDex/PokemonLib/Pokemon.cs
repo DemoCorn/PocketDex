@@ -34,8 +34,7 @@ namespace PokemonLib
 
         public override string ToString()
 		{
-            //string returnvalue = name + " " + types[0].type.name;
-
+            // Returns name followed by the types
             string returnvalue = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name) + " " + System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(types[0].type.name);
 
             if (types.Count == 2)
@@ -52,6 +51,7 @@ namespace PokemonLib
 			{
                 return true;
 			}
+            // Go through 1-2 types, if neithers name are equal to the given type it will return true
             foreach (Type TypeTester in types)
 			{
                 if (TypeTester.type.name == TypeToTest)
@@ -64,6 +64,7 @@ namespace PokemonLib
 
         public List<float> GetMatchups()
 		{
+            // Check if the directory exists
             if (!Directory.Exists("PocketDex/Types"))
             {
                 Directory.CreateDirectory("PocketDex/Types");
@@ -93,14 +94,17 @@ namespace PokemonLib
 
             foreach (Type TestType in types)
             {
+                // Check if the file exists generate it if it does not
                 if (!File.Exists("PocketDex/Types/" + TestType.type.name + ".json"))
 				{
                     CreateMatchups();
 				}
+                // Load the file
                 using (StreamReader reader = new StreamReader("PocketDex/Types/" + TestType.type.name + ".json"))
                 {
                     Save = (JsonConvert.DeserializeObject<List<float>>(reader.ReadToEnd()));
                 }
+                // Go through multiplying the items of both lists
                 for(int i = 0; i < Matchups.Count; i++)
 				{
                     Matchups[i] *= Save[i];
@@ -135,6 +139,7 @@ namespace PokemonLib
                     1 // 17: Fairy
                 };
 
+                // Hardcoded typing because I couldn't figure out how to do it quicker
                 if (TestType.type.name == "normal")
                 {
                     Matchups[4] = 2f;
@@ -311,9 +316,10 @@ namespace PokemonLib
 
                 try
                 {
+                    // Save to file
                     using (StreamWriter writer = new StreamWriter("PocketDex/Types/" + TestType.type.name + ".json"))
                     {
-                        writer.Write(System.Text.Json.JsonSerializer.Serialize<List<float>>(Matchups));
+                        writer.Write(System.Text.Json.JsonSerializer.Serialize(Matchups));
                     }
 
                 }
@@ -331,6 +337,7 @@ namespace PokemonLib
             Encounters.Load(id, location_area_encounters);
             List<string> EncounterList = new List<string>();
 
+            // Go through and add each locations name to the encounter list
             foreach (PokemonLocation Location in Encounters)
 			{
                 EncounterList.Add(Location.location_area.name);

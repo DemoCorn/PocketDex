@@ -51,6 +51,7 @@ namespace PocketDex
 		{
 			InitializeComponent();
 			myPokemon = new PokemonHandler();
+			// Load all the pokemon
 			Task.Run(() => myPokemon.asyncLoad()).Wait();
 			displayPokemon = new PokemonHandler(myPokemon);
 			lbPokemon.ItemsSource = displayPokemon;
@@ -62,6 +63,7 @@ namespace PocketDex
 
 		private void FilterByType(object sender, SelectionChangedEventArgs e)
 		{
+			// Filters by the types in the combo boxes, function used for the combo box changes
 			if (cbTypes1.SelectedItem != null && cbTypes2.SelectedItem != null)
 			{
 				displayPokemon.Clear();
@@ -74,6 +76,7 @@ namespace PocketDex
 
 		private void FilterByType()
 		{
+			// Filters by the types in the combo boxes, function used for keeping filters on when using the search bar
 			if (cbTypes1.SelectedItem != null && cbTypes2.SelectedItem != null)
 			{
 				PokemonHandler SaveHandler = new PokemonHandler();
@@ -83,11 +86,6 @@ namespace PocketDex
 				lbPokemon.ItemsSource = displayPokemon;
 				lbPokemon.Items.Refresh();
 			}
-		}
-
-		private void TesterFunction(object sender, SelectionChangedEventArgs e)
-		{
-			cbTypes1.SelectedIndex = 0;
 		}
 
 		private void OpenPokemon(object sender, SelectionChangedEventArgs e)
@@ -108,6 +106,7 @@ namespace PocketDex
 
 		private void PokemonSearch(object sender, TextChangedEventArgs e)
 		{
+			// Filters by the text in the seach bar, function used for the search bar changing
 			displayPokemon.Clear();
 			displayPokemon.AddRange(myPokemon.PokemonContainsName(tbSearchBox.Text));
 			FilterByType();
@@ -117,6 +116,7 @@ namespace PocketDex
 
 		private void PokemonSearch()
 		{
+			// Filters by the text in the seach bar, function used to keep filter on when combo boxes change
 			PokemonHandler SaveHandler = new PokemonHandler();
 			SaveHandler.AddRange(displayPokemon.PokemonContainsName(tbSearchBox.Text));
 			displayPokemon.Clear();

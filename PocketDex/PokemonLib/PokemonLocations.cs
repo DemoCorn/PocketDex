@@ -56,18 +56,22 @@ namespace PokemonLib
 	{
         public void Load(int id, string url)
 		{
+            // Check if proper directory exists
             if (!Directory.Exists("PocketDex/EncounterTables"))
             {
                 Directory.CreateDirectory("PocketDex/EncounterTables");
             }
+            // Check if the file exists inside the directory
             if (!File.Exists("PocketDex/EncounterTables/" + id + ".json"))
             {
                 Task.Run(() => GetEncounters(id, url)).Wait();
             }
+
             else
 			{
                 try
                 {
+                    // Deserialize the file
                     using (StreamReader reader = File.OpenText("PocketDex/EncounterTables/" + id + ".json"))
                     {
                         AddRange(JsonConvert.DeserializeObject<PokemonLocations>(reader.ReadToEnd()));
@@ -86,6 +90,7 @@ namespace PokemonLib
 
             try
             {
+                // Call the API and add to the object
                 string data = await httpClient.GetStringAsync(url);
 
                 AddRange(JsonConvert.DeserializeObject<PokemonLocations>(data));
@@ -96,6 +101,7 @@ namespace PokemonLib
             }
             try
             {
+                // Save the object into a json file
                 using (StreamWriter writer = new StreamWriter("PocketDex/EncounterTables/" + id + ".json"))
                 {
                     writer.Write(System.Text.Json.JsonSerializer.Serialize(this));
