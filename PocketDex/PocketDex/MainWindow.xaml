@@ -22,7 +22,7 @@
 			<RowDefinition Height="245*"/>
 			<RowDefinition Height="7*"/>
 		</Grid.RowDefinitions>
-		<ListBox Name="lbPokemon" Grid.Column="1" Grid.Row="5" SelectionChanged="TesterFunction">
+		<ListBox Name="lbPokemon" Grid.Column="1" Grid.Row="5" SelectionChanged="OpenPokemon">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
@@ -35,6 +35,8 @@
 		<ComboBox Name ="cbTypes1" SelectionChanged="FilterByType" Grid.Column="1" Grid.Row="2" Width="250" HorizontalAlignment="Left"/>
 		<ComboBox Name ="cbTypes2" SelectionChanged="FilterByType" Grid.Column="1" Grid.Row="2" Width="250" HorizontalAlignment="Right"/>
 		<TextBox Name = "tbSearchBox" Grid.Column="1" Grid.Row="4" Text="" TextWrapping="Wrap" FontSize="20" TextChanged="PokemonSearch"/>
+		<TextBlock Grid.Column="1" Grid.Row="1" Text="Types: " VerticalAlignment="Top" Margin="0,15,0,0" />
+		<TextBlock Grid.Column="1" Grid.Row="3" Text="Search: " VerticalAlignment="Top" Margin="0,20,0,0" />
 
 	</Grid>
 </Window>

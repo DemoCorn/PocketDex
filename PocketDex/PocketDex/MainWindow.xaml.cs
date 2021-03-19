@@ -90,6 +90,16 @@ namespace PocketDex
 			cbTypes1.SelectedIndex = 0;
 		}
 
+		private void OpenPokemon(object sender, SelectionChangedEventArgs e)
+		{
+			if (lbPokemon.SelectedIndex == -1)
+			{
+				return;
+			}
+			PokemonDisplay DisplayPokemon = new PokemonDisplay(lbPokemon.SelectedItem as Pokemon);
+			DisplayPokemon.Show();
+		}
+
 		private void WindowOpening(object sender, RoutedEventArgs e)
 		{
 			cbTypes1.SelectedIndex = 0;

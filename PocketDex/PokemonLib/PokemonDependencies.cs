@@ -21,6 +21,11 @@ namespace PokemonLib
         public Ability2 ability { get; set; }
         public bool is_hidden { get; set; }
         public int slot { get; set; }
+
+        public override string ToString()
+        {
+            return ability.name;
+        }
     }
 
     public class Form
@@ -88,6 +93,26 @@ namespace PokemonLib
     {
         public Move2 move { get; set; }
         public List<VersionGroupDetail> version_group_details { get; set; }
+
+        public override string ToString()
+        {
+            if (version_group_details[version_group_details.Count - 1].move_learn_method.name == "machine")
+			{
+                return move.name + "M";
+			}
+            else if (version_group_details[version_group_details.Count - 1].move_learn_method.name == "egg")
+            {
+                return move.name + "E";
+            }
+            else if (version_group_details[version_group_details.Count - 1].move_learn_method.name == "tutor")
+            {
+                return move.name + "T";
+            }
+            else
+			{
+                return version_group_details[version_group_details.Count - 1].level_learned_at + ": " + move.name + "L";
+            }
+        }
     }
 
     public class Species
@@ -348,13 +373,13 @@ namespace PokemonLib
     public class Sprites
     {
         public string back_default { get; set; }
-        public object back_female { get; set; }
+        public string back_female { get; set; }
         public string back_shiny { get; set; }
-        public object back_shiny_female { get; set; }
+        public string back_shiny_female { get; set; }
         public string front_default { get; set; }
-        public object front_female { get; set; }
+        public string front_female { get; set; }
         public string front_shiny { get; set; }
-        public object front_shiny_female { get; set; }
+        public string front_shiny_female { get; set; }
         public Other other { get; set; }
         public Versions versions { get; set; }
     }

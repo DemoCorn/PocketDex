@@ -23,3 +23,24 @@ namespace PokemonLib
         public List<BasicPokemon> results { get; set; }
 	}
 }
+
+
+    // 0: Normal
+    // 1: Fire
+    // 2: Water
+    // 3: Grass
+    // 4: Fighting
+    // 5: Electric
+    // 6: Flying
+    // 7: Rock
+    // 8: Ground
+    // 9: Psychic
+    // 10: Dark
+    // 11: Ghost
+    // 12: Bug
+    // 13: Poison
+    // 14: Ice
+    // 15: Steel
+    // 16: Dragon
+    // 17: Fairy
+
